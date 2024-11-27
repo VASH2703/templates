@@ -1,0 +1,29 @@
+.block {
+  background: #f6f8fe;
+  padding: 45px 0;
+}
+  
+.text {
+  position: relative;
+  font-size: 28px;
+  line-height: 135%;
+  font-weight: 700;
+  margin-left: 230px;
+  margin-right: 100px; 
+}
+
+.text::before, .text::after {
+  position: absolute;
+  top: 26px;
+  font-size: 100px;
+  color: #d5cfd0;
+}
+.text::before {
+  content: '“';
+  right: calc(100% + 18px);
+}
+  
+.text::after {
+  content: '„';
+  left: calc(100% + 18px);
+}

@@ -1,0 +1,28 @@
+.page {
+    max-width: 1470px;
+    margin: 0 auto;
+    padding: 0 82px 0 20px;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+  
+@media screen and (max-width: 767px) {
+  .page {
+    padding:0 16px
+  }
+}
+  
+.section {
+  margin-top: 50px;
+}
+  
+@media screen and (max-width: 767px) {
+  .section {
+    margin-top:40px;
+  }
+}
+
+.block {
+  margin-top: 20px;
+}

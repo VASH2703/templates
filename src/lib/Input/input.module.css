@@ -1,0 +1,91 @@
+.block {
+  margin-top: 50px;
+}
+
+.select:focus, .textarea:focus, .input:focus {
+  outline: 3px solid #99a9f8;
+}
+
+.checkbox:focus,.radio:focus {
+  outline:  3px auto #99a9f8;
+}
+  
+.title {
+  font-size: 18px;
+  color: #231f20
+}
+
+.input, .textarea {
+  font-size: 18px;
+  background: #ffffff;
+  border: 1px solid #a7a7ab;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 0 3px rgba(255,255,255,0);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0);
+}
+
+.input:disabled, .textarea:disabled {
+  background: #f5f5f7;
+  border: none;
+}
+
+.input {
+  line-height: 48px;
+  padding: 0 14px
+}
+
+.textarea {
+  padding: 14px;
+  resize: none;
+}
+
+.input, .textarea, .select {
+  width: 350px;
+  margin-top: 8px;
+}
+
+.select {
+  font-size: 14px;
+  color: #363b49;
+  padding: 10px 12px;
+  border: 1px solid #a7a7ab;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+}
+
+.option {
+  padding: 3px 0;
+}
+
+.radioBlock, .checkboxBlock {
+  padding: 0;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.radioBlock *, .checkboxBlock * {
+  cursor: pointer;
+}
+  
+.radio, .checkbox {
+  height: 16px;
+  width: 16px;
+  accent-color: #4077a8;
+  padding: 0;
+}
+  
+.radioLabel, .checkboxLabel {
+  line-height: 16px;
+  padding-left: 10px;
+}
+  
+.radio:disabled, .checkbox:disabled {
+  cursor: default;
+}
+  
+.radio:disabled + .radioLabel, .checkbox:disabled + .checkboxLabel {
+  color: #76767a;
+  cursor: default;
+}

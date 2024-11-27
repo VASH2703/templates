@@ -1,0 +1,36 @@
+.block {
+  background: #f6f8fe;
+  padding: 45px 0;
+  margin-top: 20px;
+}
+  
+.title {
+  padding-left: 58px;
+  margin-top: 0;
+}
+  
+.text {
+  padding-left: 116px;
+  padding-right: 58px;
+}
+  
+.title::before {
+  content: '!';
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: 30px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid #ff0202;
+  font-size: 30px;
+  font-weight: 700;
+  color: #ff0202;
+}

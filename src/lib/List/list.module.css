@@ -1,0 +1,39 @@
+.item {
+  font-size: 16px;
+  line-height: 135%;
+  color: #333333;
+}
+  
+.item:not(:first-child) {
+  margin-top: 10px;
+}
+
+.ordered, .unordered {
+  margin: 0;
+  padding: 0;
+}
+
+.ordered {
+  padding-left: 20px;
+}
+
+.ordered .item {
+  padding-left: 2px;
+}
+
+.unordered .item {
+  position: relative;
+  padding-left: 24px;
+  list-style: none;
+}
+  
+.unordered .item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.4em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0077b0;
+}

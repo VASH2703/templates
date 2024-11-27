@@ -1,0 +1,13 @@
+.text, .paragraph{
+  font-size: 16px;
+  line-height: 150%;
+  color: #333333;
+}
+
+.text::selection,  .paragraph::selection {
+  background: #dee6fd
+}
+
+.paragraph + .paragraph {
+  margin-top: 1.5em
+}
