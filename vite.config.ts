@@ -3,6 +3,7 @@ import dts from "vite-plugin-dts";
 import path from "path";
 import react from '@vitejs/plugin-react';
 
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
@@ -30,7 +31,10 @@ export default defineConfig({
   },
   css: {
     modules: {
-      generateScopedName: 'tp__[name]__[local]',
+      generateScopedName: (name, filename) => {
+        const baseName = (filename!.split('/').pop()?.replace(/\.module\.css$/, '')) || 'default';
+        return `tp__${baseName}__${name}`;
+      },
     }
   }
 })
