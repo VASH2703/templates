@@ -2,10 +2,10 @@ import { useState } from 'react';
 import styles from './input.module.css';
 import { InputProps, SelectProps, InputItemProps, RadioGroupProps, CheckListProps} from './input.types'
 
-export const TextInput = ({title, hint, maxLines, disabled, value, onChange, id, name, resize}: InputProps) => {
+export const TextInput = ({title, hint, maxLines, disabled, value, id, name, resize, ref, className, ...props}: InputProps) => {
     
     return (
-        <div className={styles.block}>
+        <div className={`${styles.block} ${className || ''}`} ref={ref} {...props}>
             {title && <div className={styles.title}>{title}</div>}
             {maxLines === 1 ? 
              (<input type="text" className={styles.input}
@@ -14,7 +14,6 @@ export const TextInput = ({title, hint, maxLines, disabled, value, onChange, id,
                 placeholder={hint}
                 disabled={disabled}
                 value={value}
-                onChange={(event) => onChange?.(event.target.value)}
                 style={resize ? {resize: resize} : {}}
              />)            :
             (<textarea className={styles.textarea}
@@ -24,17 +23,16 @@ export const TextInput = ({title, hint, maxLines, disabled, value, onChange, id,
                 disabled={disabled}
                 rows={maxLines}
                 value={value}
-                onChange={(event) => onChange?.(event.target.value)}
                 style={resize ? {resize: resize} : {}}
             />)}
         </div>
     );
 };
 
-export const Select = ({title, hint, disabled, values, id, name, index}: SelectProps) => {
+export const Select = ({title, hint, disabled, values, id, name, index, ref, className, ...props}: SelectProps) => {
 
     return (
-        <div className={styles.block}>
+        <div className={`${styles.block} ${className || ''}`} ref={ref} {...props}>
             <div className={styles.title}>
                 {title}
             </div>
@@ -59,10 +57,10 @@ export const Select = ({title, hint, disabled, values, id, name, index}: SelectP
 
 
 
-export const RadioItem = ({children, disabled, checked, name, value, onClick}: InputItemProps) => {
+export const RadioItem = ({children, disabled, checked, name, value, onClick, ref, className, ...props}: InputItemProps) => {
 
     return (
-        <div className={styles.radioBlock} onClick={onClick}>
+        <div className={`${styles.radioBlock} ${className || ''}`} onClick={onClick} ref={ref} {...props}>
             <input
                 type="radio"
                 value={value || children}
@@ -78,7 +76,7 @@ export const RadioItem = ({children, disabled, checked, name, value, onClick}: I
 
 
 
-export const RadioGroup = ({title, values, disabled, index, name}: RadioGroupProps) => {
+export const RadioGroup = ({title, values, disabled, index, name, ref, className, ...props}: RadioGroupProps) => {
 
     const [checked, setChecked] = useState(index || -1);
 
@@ -87,7 +85,7 @@ export const RadioGroup = ({title, values, disabled, index, name}: RadioGroupPro
     }
 
     return (
-        <div className={styles.block}>
+        <div className={`${styles.block} ${className || ''}`} ref={ref} {...props}>
             {title && <div className={title}>{title}</div>}
             {values.map((item, index) => (
                     <RadioItem
@@ -105,10 +103,10 @@ export const RadioGroup = ({title, values, disabled, index, name}: RadioGroupPro
 
 
 
-export const CheckBox = ({children, disabled, checked, name, value, onClick}: InputItemProps) => {
+export const CheckBox = ({children, disabled, checked, name, value, onClick, ref, className, ...props}: InputItemProps) => {
 
     return (
-        <div className={styles.checkboxBlock} onClick={onClick}>
+        <div className={`${styles.checkboxBlock} ${className || ''}`} onClick={onClick} ref={ref} {...props}>
             <input
                 type="checkbox"
                 value={value || children}
@@ -124,7 +122,7 @@ export const CheckBox = ({children, disabled, checked, name, value, onClick}: In
 
 
 
-export const CheckList = ({title, values, disabled, selected, name}: CheckListProps) => {
+export const CheckList = ({title, values, disabled, selected, name, ref, className, ...props}: CheckListProps) => {
 
     const length = values.length;
     const [select, setSelect] = useState(selected || Array(length).fill(false));
@@ -136,7 +134,7 @@ export const CheckList = ({title, values, disabled, selected, name}: CheckListPr
     }
 
     return (
-        <div className={styles.block}>
+        <div className={`${styles.block} ${className || ''}`} ref={ref} {...props}>
             {title && <div className={styles.title}>{title}</div>}
             {values.map((item, index) => (
                     <CheckBox

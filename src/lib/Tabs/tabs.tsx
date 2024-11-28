@@ -7,7 +7,7 @@ import { TabsProps, MenuProps, ContentProps } from './tabs.types';
 
 
 
-export const Tabs = ({titles, children, positionMenu}: TabsProps) => {
+export const Tabs = ({titles, children, positionMenu, ref, className, ...props}: TabsProps) => {
 
     const [active, setActive] = useState(0);
 
@@ -19,12 +19,13 @@ export const Tabs = ({titles, children, positionMenu}: TabsProps) => {
     };
 
     const menuClasses = classNames(
-        tab.container, 
-        {[tab.vert]: !positionMenu || positionMenu === "top" || positionMenu === "bottom"}
+        tab.container,
+        {className: className, 
+        [tab.vert]: !positionMenu || positionMenu === "top" || positionMenu === "bottom"}
     );
 
     return (
-        <div className={menuClasses}>
+        <div className={menuClasses} ref={ref} {...props} >
             {(!positionMenu || positionMenu === "left" || positionMenu === "top") && 
                 <Menu
                     titles={titles}
@@ -52,7 +53,7 @@ export const Tabs = ({titles, children, positionMenu}: TabsProps) => {
     );
 };
 
-export const Menu = ({titles, active, setActive, orientation}:MenuProps) => { ///
+export const Menu = ({titles, active, setActive, orientation, ref, className, ...props}:MenuProps) => { ///
 
     const orientationMap = {
         vertical: menu.vertical,
@@ -60,13 +61,14 @@ export const Menu = ({titles, active, setActive, orientation}:MenuProps) => { //
     };
 
     const classesMenu = classNames(
+        {className: className},
         menu.block,
         menu.underline, 
         orientationMap[orientation!] || menu.horizontal
     );
 
     return (
-        <div className={classesMenu}>
+        <div className={classesMenu} ref={ref} {...props}>
                 {titles.map((item, index) => ( 
                     <div 
                         onClick={() => setActive(index)}
@@ -82,10 +84,10 @@ export const Menu = ({titles, active, setActive, orientation}:MenuProps) => { //
     );
 }
 
-export const ContentBlock = ({children}: ContentProps) => {
+export const ContentBlock = ({children, ref, className, ...props}: ContentProps) => {
    
     return (
-        <div className={tab.content}>
+        <div className={`${tab.content} ${className || ''}`} ref={ref} {...props}>
             {children}
             <div style={{clear: "both"}}></div>
         </div> 

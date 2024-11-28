@@ -1,3 +1,4 @@
+import React from 'react';
 import {TitlePage, TitleSection, TitleBlock, TitleSmall, Text, Paragraph, Quote, Important} from "./lib";
 import {DropdownText} from "./lib";
 import {Tabs, ContentBlock} from "./lib";
@@ -13,7 +14,8 @@ function App() {
 
   return (
     <>
-      <Page>
+      <Page className="check">
+
         
         <TitlePage>Заголовок первого уровня</TitlePage>
         <TitleSection>Заголовок второго уровня</TitleSection>
@@ -68,7 +70,7 @@ function App() {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque ab temporibus vitae vel natus, illo quae officiis dolor ducimus, voluptatem, dolorem enim. Veritatis at ratione doloremque voluptatem sunt. Incidunt repellendus omnis dolores, maiores quod exercitationem facilis beatae obcaecati quasi quia provident quaerat temporibus officiis non, deleniti dolor enim libero doloribus.
         </DropdownText>
 
-        <Tabs titles={['О программе', 'Содержание','Преподаватели','Карьера','Итоги приёма прошлых лет']}>
+        <Tabs className="check" titles={['О программе', 'Содержание','Преподаватели','Карьера','Итоги приёма прошлых лет']}>
             <ContentBlock>
                 <TitleSection>О программе</TitleSection>
                 <Media title = 'Vidio1' date = '01.01.2001' width='40%' aspectRatio={16/9} float={'left'}>

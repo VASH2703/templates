@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { TableProps } from './table.types';
 
   
-export const Table = ({ id, data, columns, rows, sortable, noStriped, colCount }: TableProps) => {
+export const Table = ({ id, data, columns, rows, sortable, noStriped, colCount, ref, className, ...props }: TableProps) => {
     const length = colCount || columns?.length || data[0].length;
     const [active, setActive] = useState(Array(length).fill(0)); // состояния столбцов 0(без), 1(по возростанию), 2(по убыванию)
     const [order, setOrder] = useState(Array(length).fill(null)); //порядок сортировки (стек)
@@ -109,7 +109,7 @@ export const Table = ({ id, data, columns, rows, sortable, noStriped, colCount }
     });
 
     return (
-    <table id = {id} className={styles.table}>
+    <table id = {id} className={`${styles.table} ${className || ''}`} ref={ref} {...props}>
         {(columns) && (
             <thead>
                 <tr id={((id) ? id+' ' : '')+(-1)}> 

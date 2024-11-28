@@ -1,14 +1,12 @@
-import { ReactNode, Children } from 'react';
+import { Children } from 'react';
+import {GalleryProps} from './gallery.types';
 import photo from './photo.module.css';
 import video from './video.module.css';
 
-export interface GalleryProps {
-  children:ReactNode;
-}
 
-export const PhotoGallery = ({children}: GalleryProps) => {
+export const PhotoGallery = ({children, ref, className, ...props}: GalleryProps) => {
     return (
-        <div className={photo.gallery}>
+        <div className={`${photo.gallery} ${className || ''}`} ref={ref} {...props}>
             {Children.map(children, (child) => (
                 <div className={photo.item}>{child}</div>
             ))}
@@ -16,9 +14,9 @@ export const PhotoGallery = ({children}: GalleryProps) => {
     );
 };
 
-export const VideoGallery = ({children}: GalleryProps) => {
+export const VideoGallery = ({children, ref, className, ...props}: GalleryProps) => {
     return (
-        <div className={video.gallery}>
+        <div className={`${video.gallery} ${className || ''}`} ref={ref} {...props}>
             {children}
         </div>
     );

@@ -1,8 +1,9 @@
+import React from 'react';
 import classNames from 'classnames';
-import styles from './button.module.css'
+import styles from './button.module.css';
 import { ButtonProps } from './button.types';
 
-export const Button = ({children, size, styleBtn, disabled, onClick}: ButtonProps) => {
+export const Button = ({children, size, styleBtn, disabled, ref, className, ...props}: ButtonProps) => {
 
     const styleMap = {
         primary: styles.primary,
@@ -21,14 +22,18 @@ export const Button = ({children, size, styleBtn, disabled, onClick}: ButtonProp
         styles.btn,
         sizeMap[size!] || styles.sizeS,
         styleMap[styleBtn!] || styles.primary,
-        {[styles.disabled]: disabled}
+        {
+        [styles.disabled]: disabled,
+        className: className
+        }
     );
     
     return (
         <button
-            onClick={!disabled ? onClick : undefined}
             className={buttonClasses}
             disabled={disabled}
+            ref={ref}
+            {...props}
         >
             {children}
         </button>

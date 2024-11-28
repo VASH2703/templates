@@ -3,7 +3,7 @@ import { useRef, useEffect } from 'react';
 import media from './media.module.css';
 import {MediaProps} from './media.types';
 
-export const Media = ({children, title, date, float, width, aspectRatio}: MediaProps) => {
+export const Media = ({children, title, date, float, width, aspectRatio, ref, className, ...props}: MediaProps) => {
     const refContent = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -20,7 +20,7 @@ export const Media = ({children, title, date, float, width, aspectRatio}: MediaP
     };
 
     return (
-        <div className={floatMap[float!]||''} style={{width: width}}>
+        <div className={`${floatMap[float!]} ${className || ''}`} style={{width: width}} ref={ref} {...props}>
             <div className={media.content} ref={refContent}>
                 {children}
             </div>

@@ -12,70 +12,70 @@ const alingMap = {
     justify: aling.justify,
 };
 
-export const TitlePage = ({children, id, style, textAling}: TextProps) => {
+export const TitlePage = ({children, textAling, ref, className, ...props}: TextProps) => {
     return (
-        <h1 className={`${head.page} ${textAling ? alingMap[textAling] : ''}`} style={style} id={id} >
+        <h1 className={`${head.page} ${textAling ? alingMap[textAling] : ''} ${className || ''}`} ref={ref} {...props} >
             {children}
         </h1>
     );
 };
 
-export const TitleSection = ({children, id, style, textAling}: TextProps) => {
+export const TitleSection = ({children, textAling, ref, className, ...props}: TextProps) => {
     return (
-        <h2 className={`${head.section} ${textAling ? alingMap[textAling] : ''}`} style={style} id={id} >
+        <h2 className={`${head.section} ${textAling ? alingMap[textAling] : ''} ${className || ''}`} ref={ref} {...props} >
             {children}
         </h2>
     );
 };
 
-export const TitleBlock = ({children, id, style, textAling}: TextProps) => {
+export const TitleBlock = ({children, textAling, ref, className, ...props}: TextProps) => {
     return (
-        <h3 className={`${head.block} ${textAling ? alingMap[textAling] : ''}`} style={style} id={id} >
+        <h3 className={`${head.block} ${textAling ? alingMap[textAling] : ''} ${className || ''}`} ref={ref} {...props} >
             {children}
         </h3>
     );
 };
 
-export const TitleSmall = ({children, id, style, textAling}: TextProps) => {
+export const TitleSmall = ({children, textAling, ref, className, ...props}: TextProps) => {
     return (
-        <h4 className={`${head.small} ${textAling ? alingMap[textAling] : ''}`} style={style} id={id} >
+        <h4 className={`${head.small} ${textAling ? alingMap[textAling] : ''} ${className || ''}`} ref={ref} {...props} >
             {children}
         </h4>
     );
 };
 
-export const Text = ({children, id, style, textAling}: TextProps) => {
+export const Text = ({children, textAling, ref, className, ...props }: TextProps) => {
     return (
-        <div className={`${text.text} ${textAling ? alingMap[textAling] : ''}`} style={style} id={id} >
+        <div className={`${text.text} ${textAling ? alingMap[textAling] : ''} ${className || ''}`} ref={ref} {...props} >
             {children}
         </div>
     );
 };
 
-export const Paragraph= ({children, id, style, textAling}: TextProps) => {
+export const Paragraph= ({children, textAling, ref, className, ...props }: TextProps) => {
     return (
-        <p className={`${text.paragraph} ${textAling ? alingMap[textAling] : ''}`} style={style} id={id} >
+        <p className={`${text.paragraph} ${textAling ? alingMap[textAling] : ''} ${className || ''}`} ref={ref} {...props} >
            {children}
         </p>
         
     );
 };
 
-export const Quote = ({children, id}: TextProps) => {
+export const Quote = ({children, ref, className, ...props}: TextProps) => {
    
     return (
-        <div className={quote.block}  id={id} >
-              <div className={`${quote.text} ${text.text}`}>
+        <div className={`${quote.block} ${className || ''}`} ref={ref} {...props} >
+              <div className={`${quote.text} ${text.text}`} >
                 {children}
               </div>
         </div>
     );
 };
 
-export const Important = ({title, children, id}: ImportantProps) => {
+export const Important = ({title, children, ref, className, ...props}: ImportantProps) => {
    
     return (
-        <div className={important.block} id={id}>
+        <div className={`${important.block} ${className || ''}`} ref={ref} {...props}>
             <h2 className={`${important.title} ${head.section}`}>{title}</h2>
             <div className={`${important.text} ${text.text}`}>
                 {children} 

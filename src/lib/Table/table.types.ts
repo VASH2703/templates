@@ -1,4 +1,6 @@
-export interface TableProps {
+import {HTMLAttributes, Ref } from "react";
+
+export interface TableProps extends Omit<HTMLAttributes<HTMLTableElement>, 'className'> {
     id?: string;
     columns?: string[];
     colCount?: number;
@@ -6,4 +8,6 @@ export interface TableProps {
     rows?: boolean;
     sortable?: boolean;
     noStriped?: boolean;
+    className?: string;
+    ref?: Ref<HTMLTableElement>;
   }

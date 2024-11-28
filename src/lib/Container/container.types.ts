@@ -1,6 +1,7 @@
-import { ReactNode } from "react";
+import {HTMLAttributes, ReactNode, Ref } from "react";
 
-export interface ContainerProps {
+export interface ContainerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'className'> {
     children?: ReactNode;
-    id?: string;
+    className?: string;
+    ref?: Ref<HTMLDivElement>;
 }

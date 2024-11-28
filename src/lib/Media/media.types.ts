@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, HTMLAttributes, Ref } from 'react';
 
 /**
  * Props for the VideoContainer component.
@@ -13,11 +13,13 @@ import { ReactElement } from 'react';
 declare const VALID_FLOAT_VALUES: readonly ["left", "right", "none", undefined];
 declare type FloatValue = typeof VALID_FLOAT_VALUES[number];
 
-export interface MediaProps {
+export interface MediaProps extends Omit<HTMLAttributes<HTMLDivElement>, 'className'>{
     children:ReactElement;
     title?:string;
     date?:string;
     width?:string;
     float?: FloatValue;
     aspectRatio?:number;
+    className?: string;
+    ref?: Ref<HTMLDivElement>;
 };

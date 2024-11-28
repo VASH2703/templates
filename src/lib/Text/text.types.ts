@@ -1,15 +1,18 @@
+import {HTMLAttributes, Ref } from "react";
+
 declare const VALID_ALING_VALUES: readonly ["start", "end", "center", "justify", undefined];
 declare type AlingValue = typeof VALID_ALING_VALUES[number];
 
-export interface TextProps {
+export interface TextProps extends Omit<HTMLAttributes<HTMLDivElement>, 'className'> {
   children: string;
-  id?:string;
-  style?: React.CSSProperties;
   textAling?: AlingValue;
+  className?: string;
+  ref?: Ref<HTMLDivElement>;
 }
 
-export interface ImportantProps {
+export interface ImportantProps extends Omit<HTMLAttributes<HTMLDivElement>, 'className'>{
   title?: string;
   children: string;
-  id?:string;
+  className?: string;
+    ref?: Ref<HTMLDivElement>;
 }
